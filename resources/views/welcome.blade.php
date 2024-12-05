@@ -24,7 +24,7 @@
             <!-- Inner -->
             <div class="inner">
                 <header>
-                    <h1><a href="index.html" id="logo">Helios</a></h1>
+                    <h1><a href="index.html" id="logo">Hello</a></h1>
                     <hr />
                     <p>Another fine freebie by HTML5 UP</p>
                 </header>
@@ -35,7 +35,7 @@
 
             <!-- Nav -->
             <nav id="nav">
-                <ul>
+                <ul class="bg-dark">
                     <li><a href="left-sidebar.html">profile</a></li>
                     <li><a href="{{ route('tamu') }}">Kunjungan</a></li>
                     <li><a href="no-sidebar.html">Persidangan</a></li>
@@ -58,10 +58,10 @@
         <!-- Banner -->
         <section id="banner">
             <header>
-                <h2>Hi. You're looking at <strong>Helios</strong>.</h2>
+                <h2>SELAMAT DATANG DI WEB <strong>SIPEDANG</strong></h2>
                 <p>
-                    A (free) responsive site template by <a href="http://html5up.net">HTML5 UP</a>.
-                    Built with HTML5/CSS3 and released under the <a href="http://html5up.net/license">CCA</a> license.
+                    SISTEM PERSIDANGAN DAN PERUNDANG UNDANGAN <a href="http://html5up.net"></a>
+                     <a href="http://html5up.net/license"></a> 
                 </p>
             </header>
         </section>
@@ -73,8 +73,8 @@
                 <header>
                     <h2><a href="#">Sed massa imperdiet magnis</a></h2>
                     <p>
-                        Sociis aenean eu aenean mollis mollis facilisis primis ornare penatibus aenean. Cursus ac enim
-                        pulvinar curabitur morbi convallis. Lectus malesuada sed fermentum dolore amet.
+                    (SIPEDANG) Sistem Informasi Persidangan dan Perundang Undangan merupakan sistem informasi dokumen berbasis website
+                    yang menampilkan informasi dokumen, dan arsip digital pada 3 Sub Bagian Persidangan dan Perundang-Undangan Sekretariat DPRD KabupatenCianjur
                     </p>
                 </header>
                 <p>

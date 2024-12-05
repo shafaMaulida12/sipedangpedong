@@ -11,7 +11,8 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    $data['pengaju'] = bukuTamu::orderBy('created_at', 'desc')->take(10)->get();
+    $data['pengaju'] = bukuTamu::orderBy('created_at', 'desc')->where('status', 'menunggu')->take(10)->get();
+    $data['history'] = bukuTamu::orderBy('created_at', 'desc')->where('status', 'konfirmasi')->get();
 
     
     // dd($data['pengaju']);
@@ -26,7 +27,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('BukuTamu', [tamuController::class, 'index'])->name('tamu');
 Route::post('pengajuan', [tamuController::class, 'create'])->name('pengajuan');
-
+Route::get('/konfirmasi/{id}', [adminController::class, 'kirimPesan']);
 Route::get('admin', [adminController::class, 'index'])->name('admin');
 
 require __DIR__.'/auth.php';

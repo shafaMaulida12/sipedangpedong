@@ -3,13 +3,17 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\tamuController;
 use Illuminate\Support\Facades\Route;
+use App\Models\bukuTamu;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $data['pengaju'] = bukuTamu::orderBy('created_at', 'desc')->take(10)->get();
+    
+    // dd($data['pengaju']);
+    return view('dashboard')->with($data);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -20,5 +24,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('BukuTamu', [tamuController::class, 'index'])->name('tamu');
 Route::post('pengajuan', [tamuController::class, 'create'])->name('pengajuan');
+
+Route::get('admin', [adminController::class, 'index'])->name('admin');
 
 require __DIR__.'/auth.php';

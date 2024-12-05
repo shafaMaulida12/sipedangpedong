@@ -21,6 +21,7 @@ class tamuController extends Controller
             'materi' => 'required',
             'permohonan' => 'required',
             'pendamping' => 'required',
+            'no_tlp' => 'required',
         ]);
 
         if ($request->hasFile('permohonan')) {
@@ -40,6 +41,7 @@ class tamuController extends Controller
             'tujuan' => $request->tujuan,
             'jumlah' => $request->jumlah,
             'materi' => $request->materi,
+            'no_tlp' => $request->no_tlp,
             'permohonan' => $permohonan,
             'pendamping' => $filename,
         ]);

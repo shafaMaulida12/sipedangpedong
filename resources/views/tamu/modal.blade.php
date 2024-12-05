@@ -43,6 +43,10 @@
             <label for="exampleInputEmail1" class="form-label">Upload Surat Tugas Kunjungan  (satu file beserta pendamping)</label>
             <input type="file" class="form-control" name='pendamping' id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Nomor Telepon</label>
+            <input type="Number" class="form-control" name='no_tlp' id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

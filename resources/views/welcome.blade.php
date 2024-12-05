@@ -33,11 +33,11 @@
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li><a href="index.html">Home</a></li>
 								<li><a href="left-sidebar.html">profile</a></li>
 								<li><a href="{{route('tamu')}}">Kunjungan</a></li>
 								<li><a href="no-sidebar.html">Persidangan</a></li>
                                 <li><a href="no-sidebar.html">Perundang-undangan</a></li>
+                                <li><a href="login">Login</a></li>
 							</ul>
 						</nav>
 

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('materi');
             $table->string('permohonan');
             $table->string('pendamping');
+            $table->bigInteger('no_tlp');
             $table->timestamps();
         });
     }

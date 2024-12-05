@@ -1,55 +1,137 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Data Buku Tamu') }}
-        </h2>
-    </x-slot>
+<!DOCTYPE html>
+<html lang="en">
 
-    <div class="py-12">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-            <div class="p-6 text-gray-900 dark:text-gray-100">
-                <h3 class="mb-4 text-lg font-medium text-gray-700 dark:text-gray-300">Daftar Buku Tamu</h3>
-                
-                <div class="overflow-x-auto">
-                    <table class="min-w-full border border-gray-300 dark:border-gray-700">
-                        <thead class="bg-gray-50 dark:bg-gray-700">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Buku Tamu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            background-color: #1d1313;
+            color: #ffffff;
+        }
+
+        .navbar {
+            background-color: #e2e2e2;
+        }
+
+        .card {
+            background-color: #f55299;
+            border: none;
+        }
+
+        .table th,
+        .table td {
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Laravel</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Dashboard</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            admin
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <h2 class="text-center">Data Buku Tamu</h2>
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Daftar Buku Tamu</h5>
+                <table class="table table-bordered table-dark mt-3">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nama</th>
+                            <th>Asal</th>
+                            <th>Tanggal</th>
+                            <th>Tujuan</th>
+                            <th>Jumlah</th>
+                            <th>Materi</th>
+                            <th>Permohonan</th>
+                            <th>Pendamping</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($pengaju as $tamu)
                             <tr>
-                                <th class="px-4 py-2 border dark:border-gray-600 text-left font-semibold text-gray-600 dark:text-gray-300">#</th>
-                                <th class="px-4 py-2 border dark:border-gray-600 text-left font-semibold text-gray-600 dark:text-gray-300">Nama</th>
-                                <th class="px-4 py-2 border dark:border-gray-600 text-left font-semibold text-gray-600 dark:text-gray-300">Asal</th>
-                                <th class="px-4 py-2 border dark:border-gray-600 text-left font-semibold text-gray-600 dark:text-gray-300">Tanggal</th>
-                                <th class="px-4 py-2 border dark:border-gray-600 text-left font-semibold text-gray-600 dark:text-gray-300">Tujuan</th>
-                                <th class="px-4 py-2 border dark:border-gray-600 text-left font-semibold text-gray-600 dark:text-gray-300">Jumlah</th>
-                                <th class="px-4 py-2 border dark:border-gray-600 text-left font-semibold text-gray-600 dark:text-gray-300">Materi</th>
-                                <th class="px-4 py-2 border dark:border-gray-600 text-left font-semibold text-gray-600 dark:text-gray-300">Permohonan</th>
-                                <th class="px-4 py-2 border dark:border-gray-600 text-left font-semibold text-gray-600 dark:text-gray-300">Pendamping</th>
+                                <td>1</td>
+                                <td>{{ $tamu->nama }}</td>
+                                <td>{{ $tamu->asal }}</td>
+                                <td>{{ $tamu->tanggal }}</td>
+                                <td>{{ $tamu->tujuan }}</td>
+                                <td>{{ $tamu->jumlah }}</td>
+                                <td>{{ $tamu->materi }}</td>
+                                <td><button type="button" class="btn btn-outline-light" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal{{ $tamu->id }}"><i
+                                            class="text-danger bi bi-search-heart-fill"></i></button></td>
+                                <td><button type="button" class="btn btn-outline-light" data-bs-toggle="modal"
+                                        data-bs-target="#safa{{ $tamu->id }}"><i
+                                            class="text-danger bi bi-search-heart-fill"></i></button></td>
+                                </td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            @forelse ($pengaju as $index => $item)
-                                <tr class="{{ $loop->even ? 'bg-gray-100 dark:bg-gray-800' : 'bg-white dark:bg-gray-900' }}">
-                                    <td class="px-4 py-2 border dark:border-gray-600">{{ $index + 1 }}</td>
-                                    <td class="px-4 py-2 border dark:border-gray-600">{{ $item->nama }}</td>
-                                    <td class="px-4 py-2 border dark:border-gray-600">{{ $item->asal }}</td>
-                                    <td class="px-4 py-2 border dark:border-gray-600">{{ $item->tanggal }}</td>
-                                    <td class="px-4 py-2 border dark:border-gray-600">{{ $item->tujuan }}</td>
-                                    <td class="px-4 py-2 border dark:border-gray-600">{{ $item->jumlah }}</td>
-                                    <td class="px-4 py-2 border dark:border-gray-600">{{ $item->materi }}</td>
-                                    <td class="px-4 py-2 border dark:border-gray-600"><img src="{{'permohonan/' . $item->permohonan}}" alt=""></td>
-                                    <td class="px-4 py-2 border dark:border-gray-600"><img src="{{'permohonan/' . $item->pendamping}}" alt=""></td>
-                                </tr>
-                            @empty
-                                <tr>
-                                    <td colspan="9" class="px-4 py-2 border text-center dark:border-gray-600">Tidak ada data</td>
-                                </tr>
-                            @endforelse
-                        </tbody>
-                    </table>
-                </div>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-</div>
 
-</x-app-layout>
+
+    @foreach ($pengaju as $modal)
+        <div class="modal fade" id="exampleModal{{$modal->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog bg-dark">
+                <div class="modal-content bg-dark">
+                    <div class="modal-body">
+                        <img src="{{ asset('permohonan/' . $modal->permohonan) }}"
+                            class="img-fluid rounded mx-auto d-block" alt="foto tamu">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="safa{{$modal->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body text-dark">
+                        <img src="{{ asset('permohonan/' . $modal->pendamping) }}"
+                            class="img-fluid rounded mx-auto d-block" alt="foto tamu">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

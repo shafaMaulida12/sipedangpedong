@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\adminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\tamuController;
 use Illuminate\Support\Facades\Route;
@@ -11,6 +12,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     $data['pengaju'] = bukuTamu::orderBy('created_at', 'desc')->take(10)->get();
+
     
     // dd($data['pengaju']);
     return view('dashboard')->with($data);
